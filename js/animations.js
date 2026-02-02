@@ -33,4 +33,24 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal');
     revealElements.forEach(el => observer.observe(el));
+
+    // Mobile Nav Toggle
+    const nav = document.querySelector('nav');
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('nav-open');
+            document.body.classList.toggle('nav-open');
+        });
+    }
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('nav-open');
+            document.body.classList.remove('nav-open');
+        });
+    });
 });
