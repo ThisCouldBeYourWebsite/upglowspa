@@ -1,0 +1,205 @@
+/* ============================================
+   MEDSPA LUXE - High-End Aesthetic System
+   White, Beige, and Soft Gold
+   ============================================ */
+
+:root {
+    --luxe-bg: #fdfbf7;
+    --luxe-surface: #ffffff;
+    --luxe-primary: #c5a07c;
+    /* Soft Gold */
+    --luxe-primary-glow: rgba(197, 160, 124, 0.2);
+    --luxe-text-main: #1a1a1a;
+    --luxe-text-muted: #666666;
+    --luxe-border: rgba(197, 160, 124, 0.15);
+    --luxe-glass: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html.lenis {
+    height: auto;
+}
+
+body {
+    background-color: var(--luxe-bg);
+    color: var(--luxe-text-main);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Layout --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* --- Navigation --- */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 24px 0;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+nav.scrolled {
+    background: var(--luxe-glass);
+    backdrop-filter: blur(20px);
+    padding: 16px 0;
+    border-bottom: 1px solid var(--luxe-border);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: var(--luxe-text-main);
+}
+
+.logo span {
+    color: var(--luxe-primary);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--luxe-text-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--luxe-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--luxe-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 100px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: var(--luxe-primary);
+    color: #fff;
+    box-shadow: 0 10px 20px var(--luxe-primary-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px var(--luxe-primary-glow);
+    filter: brightness(1.05);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--luxe-primary);
+    color: var(--luxe-primary);
+}
+
+.btn-outline:hover {
+    background: var(--luxe-primary);
+    color: #fff;
+}
+
+/* --- Hero --- */
+.hero {
+    padding-top: 180px;
+    padding-bottom: 100px;
+    text-align: center;
+    position: relative;
+}
+
+.hero-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--luxe-primary-glow);
+    color: var(--luxe-primary);
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+}
+
+.hero p {
+    font-size: 1.25rem;
+    color: var(--luxe-text-muted);
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* --- Section Utils --- */
+.section-padding {
+    padding: 100px 0;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Footer --- */
+footer {
+    background: #fff;
+    border-top: 1px solid var(--luxe-border);
+    padding: 80px 0 40px;
+}
