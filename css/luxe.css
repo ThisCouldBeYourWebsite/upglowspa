@@ -228,32 +228,37 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        padding: 20px 0;
+        padding: 12px 0;
     }
 
     .nav-content {
-        display: flex;
-        justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
         align-items: center;
+        gap: 10px;
     }
 
     .mobile-nav-toggle {
         display: flex;
-        order: 2;
-        /* Middle */
+        justify-self: center;
+        z-index: 1100;
+        margin: 0;
     }
 
     .logo {
-        order: 1;
-        /* Left */
-        font-size: 1.25rem;
+        justify-self: start;
+        font-size: 1.1rem;
+        line-height: 1.1;
+        max-width: 80px;
+        white-space: normal;
+        display: block;
     }
 
     .nav-cta {
-        order: 3;
-        /* Right */
-        padding: 10px 18px;
-        font-size: 0.8rem;
+        justify-self: end;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        white-space: nowrap;
     }
 
     .nav-links {
@@ -319,6 +324,7 @@ footer {
         margin-right: auto !important;
     }
 
+    /* For layouts with inline grid styles, convert to flex */
     div[style*="grid-template-columns"] {
         display: flex !important;
         flex-direction: column !important;
@@ -330,9 +336,32 @@ footer {
         gap: 12px !important;
     }
 
-    /* Specific overrides for grid layouts with inline styles */
     section[style*="display: grid"] {
         display: flex !important;
         flex-direction: column !important;
+    }
+
+    /* Fix "tower" image placeholders to be square and almost edge-to-edge */
+    .luxe-placeholder {
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        width: calc(100% + 24px) !important;
+        margin-left: -12px !important;
+        margin-right: -12px !important;
+        border-radius: 16px !important;
+        overflow: hidden;
+    }
+
+    /* Center service list items on mobile */
+    main ul {
+        padding: 0 !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        list-style-position: inside !important;
+    }
+
+    main li {
+        justify-content: center !important;
+        text-align: center !important;
     }
 }
